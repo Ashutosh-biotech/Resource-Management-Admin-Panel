@@ -7,9 +7,10 @@ function App() {
     return (
         <>
             <Navbar />
+            <Home />
             <BrowserRouter>
                 <Routes>
-                    <Route element={Home} path="/"/>
+                    <Route element={Home} path=""/>
                 </Routes>
             </BrowserRouter>
         </>
