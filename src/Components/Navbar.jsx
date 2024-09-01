@@ -1,35 +1,22 @@
-import {Link} from "react-router-dom";
-import {Logo, Me} from "../Assets/Assets";
+import { Logo, Me } from "../Assets/Assets";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     return (
-        <>
-            <nav className="navbar navbar-expand-sm navbar-light bg-white">
-                <div className="container-fluid">
-                    <div className={"navbar-brand"}>
-                        {/*<Link to="/">*/}
-                        <img src={Logo} alt="Next Wave"/>
-                        {/*</Link>*/}
-                    </div>
-                    <div className={"d-flex align-items-center"}>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav ms-auto align-items-center">
-                                <li className="nav-item">
-                                    <button type="button" className="btn btn-success btn-sm">Add Item</button>
-                                </li>
-                                <li className="nav-item dropdown">
-                                    <img src={Me} alt="" className={"img-fluid rounded-circle ml-4"} style={{width: "40px"}}/>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <header className="fixed w-full bg-white shadow top-0">
+            <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
+                <div className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                    <Link to="/">
+                        <img src={Logo} alt="" />
+                    </Link>
                 </div>
-            </nav>
-        </>
+                <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                    <a className="inline-block rounded bg-green-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl active:bg-green-500 mr-10" href="/" >
+                        Add Items
+                    </a>
+                    <img src={Me} alt="Profile" className="w-10 h-10 rounded-full" />
+                </nav>
+            </div>
+        </header>
     )
 }
