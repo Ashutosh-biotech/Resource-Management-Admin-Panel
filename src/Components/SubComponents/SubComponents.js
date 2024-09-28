@@ -1,5 +1,5 @@
-import Resource from "./Resource";
+import Card from "./card.jsx";
 
 export {
-    Resource
+    Card
 }

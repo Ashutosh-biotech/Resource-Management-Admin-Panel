@@ -1,5 +1,5 @@
 import { HashRouter, BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home, Login } from "./Pages/Pages.js";
+import { Home, Login, AddItem } from "./Pages/Pages.js";
 import { Navbar } from "./Components/Components.js"
 
 function App() {
@@ -10,22 +10,17 @@ function App() {
         login = true;
     }
     return (
-        <>
-            <BrowserRouter>
-                {login ? <Navbar /> : null}
-                <main className={`${login ? "pt-24" : "pt-0"} px-5 bg-gray-100 h-screen`}>
-                    {login ? (
-                        <Routes>
-                            <Route exact path="/" element={<Home />} />
-                        </Routes>
-                    ) : (
-                        <Routes>
-                            <Route exact path="/" element={<Login />} />
-                        </Routes>
-                    )}
-                </main>
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            {login ? <Navbar /> : null}
+            {login ? (
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/add/item" element={<AddItem />} />
+                </Routes>
+            ) : (
+                <Login />
+            )}
+        </BrowserRouter>
     )
 }
 
